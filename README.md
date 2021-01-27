@@ -3,6 +3,7 @@
 MBVersion adds customizable tag to your application about the app version.
 
 [![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
+[![codebeat badge](https://codebeat.co/badges/d84c4136-a8e6-4ef4-85a0-0d3690646043)](https://codebeat.co/projects/github-com-mobven-mbversion-main)
 
 ![MBVersion](https://github.com/mobven/MBVersion/blob/main/docs/scr_1.png)
 
