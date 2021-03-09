@@ -11,7 +11,7 @@ MBVersion adds customizable tag to your application about the app version.
 ## Requirements
 * iOS 10.0+
 * Xcode 11+
-* Swift 5.2+
+* Swift 5.3+
 
 ## Installation
 MBVersion is distributed with [Swift Package Manager](https://swift.org/package-manager/) which is the only official distribution tool by Apple. You can add MBVersion to your project from Xcode's `File > Swift Packages > Add Package Dependency` menu with its github URL:
