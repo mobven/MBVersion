@@ -10,22 +10,22 @@ import UIKit
 
 /// `UIViewController` extensions for method swizzlings.
 /// Used only in circumstances where store application will not swizzle this methods.
-/// eg. viewDidAppear swizzling is called only for "VERSION_LABEL_ENABLED" builds.
+/// eg. viewWillAppear swizzling is called only for "VERSION_LABEL_ENABLED" builds.
 extension UIViewController {
     
-    /// Swizzles UIViewController.viewDidAppear(_:) to call `VersionConfig.shared?.show()`
-    internal class func swizzleDidAppear() {
+    /// Swizzles UIViewController.viewWillAppear(_:) to call `VersionConfig.shared?.show()`
+    internal class func swizzleWillAppear() {
         /*
          Swizzling should always be done in a dispatch_once,
          since GCD’s dispatch_once provides both atomicity (i.e. all or nothing)
          and guarantee that code will be executed exactly once, even across different threads.
          */
         DispatchQueue.once {
-            let originalSelector = #selector(UIViewController.viewDidAppear(_:))
-            let swizzledSelector = #selector(UIViewController.dcViewDidAppear(_:))
+            let originalSelector = #selector(UIViewController.viewWillAppear(_:))
+            let swizzledSelector = #selector(UIViewController.dcViewWillAppear(_:))
             
             guard let originalMethod = class_getInstanceMethod(self, originalSelector),
-                let swizzledMethod = class_getInstanceMethod(self, swizzledSelector) else { return }
+                  let swizzledMethod = class_getInstanceMethod(self, swizzledSelector) else { return }
             
             let didAddMethod = class_addMethod(self, originalSelector,
                                                method_getImplementation(swizzledMethod),
@@ -42,10 +42,10 @@ extension UIViewController {
     }
     
     // MARK: - Method Swizzling
-    @objc func dcViewDidAppear(_ animated: Bool) {
-        // Will call the original viewDidAppear(:) method which is at this point swizzled
-        self.dcViewDidAppear(animated)
-        MBVersion.shared?.show()
+    @objc func dcViewWillAppear(_ animated: Bool) {
+        // Will call the original viewWillAppear(:) method which is at this point swizzled
+        self.dcViewWillAppear(animated)
+        MBVersion.shared.show()
     }
     
 }
