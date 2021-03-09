@@ -18,7 +18,6 @@ public final class MBVersion {
         let label = UILabel()
         label.frame = CGRect(x: 0, y: UIScreen.main.bounds.height - 20,
                              width: UIScreen.main.bounds.width, height: 20)
-        setVersionLabelText()
         label.backgroundColor = UIColor(red: .zero, green: 115/255, blue: 239/255, alpha: 1)
         label.textColor = UIColor.white
         label.font = UIFont.boldSystemFont(ofSize: 13)
@@ -28,6 +27,7 @@ public final class MBVersion {
     private init() {
         UIViewController.swizzleWillAppear()
         UIApplication.shared.keyWindow?.addSubview(versionLabel)
+        setVersionLabelText()
     }
 
     private func setVersionLabelText() {
