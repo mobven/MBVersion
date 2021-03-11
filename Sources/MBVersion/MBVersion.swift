@@ -25,9 +25,12 @@ public final class MBVersion {
     }()
 
     private init() {
-        UIViewController.swizzleWillAppear()
-        UIApplication.shared.keyWindow?.addSubview(versionLabel)
-        setVersionLabelText()
+        DispatchQueue.main.async {
+            UIViewController.swizzleWillAppear()
+            UIApplication.shared.keyWindow?.addSubview(self.versionLabel)
+            self.setVersionLabelText()
+        }
+
     }
 
     private func setVersionLabelText() {
