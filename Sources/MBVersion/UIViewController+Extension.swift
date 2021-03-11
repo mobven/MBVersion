@@ -13,7 +13,7 @@ import UIKit
 /// eg. viewWillAppear swizzling is called only for "VERSION_LABEL_ENABLED" builds.
 extension UIViewController {
     
-    /// Swizzles UIViewController.viewWillAppear(_:) to call `VersionConfig.shared?.show()`
+    /// Swizzles UIViewController.viewWillAppear(_:) to call `MBVersion.shared.show()`
     internal class func swizzleWillAppear() {
         /*
          Swizzling should always be done in a dispatch_once,
@@ -45,7 +45,9 @@ extension UIViewController {
     @objc func dcViewWillAppear(_ animated: Bool) {
         // Will call the original viewWillAppear(:) method which is at this point swizzled
         self.dcViewWillAppear(animated)
-        MBVersion.shared.show()
+        DispatchQueue.main.async {
+            MBVersion.shared.show()
+        }
     }
     
 }
