@@ -45,9 +45,7 @@ extension UIViewController {
     @objc func dcViewWillAppear(_ animated: Bool) {
         // Will call the original viewWillAppear(:) method which is at this point swizzled
         self.dcViewWillAppear(animated)
-        DispatchQueue.main.async {
-            MBVersion.shared.show()
-        }
+        MBVersion.shared.show()
     }
     
 }
