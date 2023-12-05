@@ -30,6 +30,7 @@ public final class MBVersion {
     private init() {
         DispatchQueue.main.async {
             UIViewController.swizzleWillAppear()
+            URLSession.swizzleDataTask()
             UIApplication.shared.keyWindow?.addSubview(self.versionLabel)
             self.setVersionLabelText()
         }
