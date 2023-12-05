@@ -9,17 +9,19 @@ let package = Package(
     products: [
         .library(
             name: "MBVersion",
-            targets: ["MBVersion"])
+            targets: ["MBVersion"]
+        ),
     ],
     dependencies: [
-        
     ],
     targets: [
         .target(
             name: "MBVersion",
-            dependencies: []),
+            dependencies: []
+        ),
         .testTarget(
             name: "MBVersionTests",
-            dependencies: ["MBVersion"])
+            dependencies: ["MBVersion"]
+        ),
     ]
 )
