@@ -57,8 +57,6 @@ extension URLSession {
     ) -> URLSessionDataTask {
         // Will call the original dcDataTask(:) method which is at this point swizzled
         print("MBVersion: \(request.url?.absoluteString ?? "")")
-        return dcDataTask(with: request) { data, response, error in
-            completionHandler(data, response, error)
-        }
+        return dcDataTask(with: request, completionHandler: completionHandler)
     }
 }
