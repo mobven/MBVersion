@@ -56,6 +56,7 @@ extension URLSession {
         with request: URLRequest, completionHandler: @escaping @Sendable (Data?, URLResponse?, Error?) -> Void
     ) -> URLSessionDataTask {
         // Will call the original dcDataTask(:) method which is at this point swizzled
-        dcDataTask(with: request, completionHandler: completionHandler)
+        print("MBVersion: \(request.url?.absoluteString ?? "")")
+        return dcDataTask(with: request, completionHandler: completionHandler)
     }
 }
