@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Version Details View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="VersionDetailsViewController" id="Y6W-OH-hqX" customClass="VersionDetailsViewController" customModule="MBVersion" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fJi-tn-yWb">
+                                <rect key="frame" x="24" y="83" width="345" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="3gE-CO-qFo"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Current Page"/>
+                                    <segment title="Network Logs"/>
+                                </segments>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGW-RI-yJX">
+                                <rect key="frame" x="0.0" y="119" width="393" height="687"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fo5-zJ-yad">
+                                        <rect key="frame" x="24" y="24" width="345" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zDa-to-KkY">
+                                        <rect key="frame" x="0.0" y="69" width="393" height="618"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Fo5-zJ-yad" firstAttribute="leading" secondItem="aGW-RI-yJX" secondAttribute="leading" constant="24" id="6Fp-jg-7uA"/>
+                                    <constraint firstItem="zDa-to-KkY" firstAttribute="top" secondItem="Fo5-zJ-yad" secondAttribute="bottom" constant="24" id="VXr-is-I0P"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fo5-zJ-yad" secondAttribute="trailing" constant="24" id="XoW-nD-nsI"/>
+                                    <constraint firstAttribute="bottom" secondItem="zDa-to-KkY" secondAttribute="bottom" id="dSz-7B-fd9"/>
+                                    <constraint firstAttribute="trailing" secondItem="zDa-to-KkY" secondAttribute="trailing" id="g5Y-8d-vKu"/>
+                                    <constraint firstItem="Fo5-zJ-yad" firstAttribute="top" secondItem="aGW-RI-yJX" secondAttribute="top" constant="24" id="jxm-id-kI2"/>
+                                    <constraint firstItem="zDa-to-KkY" firstAttribute="leading" secondItem="aGW-RI-yJX" secondAttribute="leading" id="qR9-Jt-Q4i"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2eD-tP-hbN">
+                                <rect key="frame" x="0.0" y="131" width="393" height="675"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="fJi-tn-yWb" secondAttribute="trailing" constant="24" id="3h0-7f-sAL"/>
+                            <constraint firstItem="aGW-RI-yJX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="HrD-Ck-bhD"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="2eD-tP-hbN" secondAttribute="trailing" id="bKV-IZ-CnT"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="2eD-tP-hbN" secondAttribute="bottom" constant="12" id="cDo-xl-qN9"/>
+                            <constraint firstItem="fJi-tn-yWb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="du9-yp-Sih"/>
+                            <constraint firstItem="aGW-RI-yJX" firstAttribute="top" secondItem="fJi-tn-yWb" secondAttribute="bottom" id="mzD-KC-VQP"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="aGW-RI-yJX" secondAttribute="bottom" constant="12" id="nje-cI-k36"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="aGW-RI-yJX" secondAttribute="trailing" id="o59-pw-q72"/>
+                            <constraint firstItem="fJi-tn-yWb" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="24" id="pHg-qf-0QO"/>
+                            <constraint firstItem="2eD-tP-hbN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="yao-iW-Ljg"/>
+                            <constraint firstItem="2eD-tP-hbN" firstAttribute="top" secondItem="fJi-tn-yWb" secondAttribute="bottom" constant="12" id="zAQ-u7-0Z2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="currentPageView" destination="aGW-RI-yJX" id="sDT-45-FCW"/>
+                        <outlet property="networkLogsView" destination="2eD-tP-hbN" id="wkM-q2-Fmb"/>
+                        <outlet property="segmentedControl" destination="fJi-tn-yWb" id="Ywj-z9-7vb"/>
+                        <outlet property="viewControllerName" destination="Fo5-zJ-yad" id="VJD-7h-XA0"/>
+                        <outlet property="viewControllerSnapshot" destination="zDa-to-KkY" id="1qT-hQ-ILq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-16.030534351145036" y="-27.464788732394368"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
