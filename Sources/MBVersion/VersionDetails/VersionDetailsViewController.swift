@@ -8,6 +8,11 @@
 import Foundation
 import UIKit
 
+enum SegmentType: Int, CaseIterable {
+    case snapshot = 0
+    case networkLogs
+}
+
 public class VersionDetailsViewController: UIViewController {
 
     @IBOutlet var segmentedControl: UISegmentedControl!
@@ -38,10 +43,11 @@ public class VersionDetailsViewController: UIViewController {
     }
 
     private func displayViewController(forSegment segment: Int) {
-        switch segment {
-        case 0:
+        let segmentType = SegmentType(rawValue: segment)
+        switch segmentType {
+        case .snapshot:
             configureSnapshotViewController()
-        case 1:
+        case .networkLogs:
             configureNetworkLogsViewController()
         default:
             break
@@ -88,6 +94,14 @@ public class VersionDetailsViewController: UIViewController {
 
     private func showContentController(content: UIViewController?) {
         guard let content else { return }
+
+        if content == snapshotViewController {
+            networkLogsViewController?.removeFromParent()
+            networkLogsViewController = nil
+        } else {
+            snapshotViewController?.removeFromParent()
+            snapshotViewController = nil
+        }
 
         for subview in containerView.subviews {
             subview.removeFromSuperview()
