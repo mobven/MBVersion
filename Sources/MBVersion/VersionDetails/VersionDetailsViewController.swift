@@ -11,58 +11,92 @@ import UIKit
 public class VersionDetailsViewController: UIViewController {
 
     @IBOutlet var segmentedControl: UISegmentedControl!
-    @IBOutlet var viewControllerName: UILabel!
-    @IBOutlet var viewControllerSnapshot: UIImageView!
-    @IBOutlet var currentPageView: UIView!
-    @IBOutlet var networkLogsView: UIView!
+    @IBOutlet var containerView: UIView!
+
+    public var snapshotViewController: SnapshotViewController?
+    public var networkLogsViewController: NetworkLogsViewController?
 
     public var snapShot: UIImage?
+    public var networkLogs: String?
 
     public override func viewDidLoad() {
         super.viewDidLoad()
         setSegmentedControl()
-        setCurrentPageSegment()
+        displayViewController(forSegment: 0)
     }
 
     private func setSegmentedControl() {
         let segmentedControlSelector = #selector(segmentedControlValueChanged(_:))
 
-        segmentedControl.layer.borderWidth = 1
-        segmentedControl.layer.borderColor = UIColor.white.cgColor
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.addTarget(self, action: segmentedControlSelector, for: .valueChanged)
     }
 
-    private func setCurrentPageSegment() {
-        guard let snapShot else { return }
-        currentPageView.isHidden = false
-        networkLogsView.isHidden = true
-        viewControllerName.text = String(
-            describing: type(of: UIApplication.shared.keyWindow?.rootViewController ?? UIViewController())
-        )
-        viewControllerSnapshot.image = snapShot
-        viewControllerSnapshot.contentMode = .scaleAspectFit
-    }
-
-    private func setNetworkLogs() {
-        currentPageView.isHidden = true
-        networkLogsView.isHidden = false
-
-        networkLogsView.backgroundColor = UIColor.systemGreen
-    }
-
-    @objc func segmentedControlValueChanged(_ sender: UISegmentedControl) {
+    @objc private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         let selectedIndex = sender.selectedSegmentIndex
-        switch selectedIndex {
+        displayViewController(forSegment: selectedIndex)
+    }
+
+    private func displayViewController(forSegment segment: Int) {
+        switch segment {
         case 0:
-            setCurrentPageSegment()
+            configureSnapshotViewController()
         case 1:
-            setNetworkLogs()
-            // will be implemented
+            configureNetworkLogsViewController()
         default:
             break
         }
     }
-}
 
+    private func configureSnapshotViewController() {
+        guard let snapshotViewController else {
+            let storyboard = UIStoryboard(name: "Snapshot", bundle: .module)
+
+            snapshotViewController = storyboard.instantiateViewController(
+                withIdentifier: "SnapshotViewController"
+            ) as? SnapshotViewController
+
+            snapshotViewController?.viewControllerName = String(
+                describing: type(
+                    of: UIApplication.shared.keyWindow?.rootViewController ?? UIViewController()
+                )
+            )
+            snapshotViewController?.snapshot = snapShot
+
+            showContentController(content: snapshotViewController)
+            return
+        }
+
+        showContentController(content: snapshotViewController)
+    }
+
+    private func configureNetworkLogsViewController() {
+        guard let networkLogsViewController else {
+            let storyboard = UIStoryboard(name: "NetworkLogs", bundle: .module)
+
+            networkLogsViewController = storyboard.instantiateViewController(
+                withIdentifier: "NetworkLogsViewController"
+            ) as? NetworkLogsViewController
+            networkLogsViewController?.networkLogs = networkLogs
+
+            showContentController(content: networkLogsViewController)
+            return
+        }
+
+        showContentController(content: networkLogsViewController)
+    }
+
+    private func showContentController(content: UIViewController?) {
+        guard let content else { return }
+
+        for subview in containerView.subviews {
+            subview.removeFromSuperview()
+        }
+
+        addChild(content)
+        content.view.frame = containerView.bounds
+        containerView.addSubview(content.view)
+        content.didMove(toParent: self)
+    }
+}
 
