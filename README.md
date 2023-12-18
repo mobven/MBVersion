@@ -38,5 +38,9 @@ struct VersionConfig {
 }
 ```
 
+## What's Next
+- [ ] Add documentation & screenshots for DEBUG screens
+- [ ] Swizzle or use URL protocols to show network logs in DEBUG screens.
+
 ---
 Developed with 🖤 at [Mobven](https://mobven.com/)
