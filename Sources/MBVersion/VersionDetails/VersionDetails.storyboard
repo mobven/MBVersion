@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Version Details View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="VersionDetailsViewController" id="Y6W-OH-hqX" customClass="VersionDetailsViewController" customModule="MBVersion" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fJi-tn-yWb">
+                                <rect key="frame" x="24" y="83" width="345" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="3gE-CO-qFo"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Current Page"/>
+                                    <segment title="Network Logs"/>
+                                </segments>
+                            </segmentedControl>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZg-Gd-hHX">
+                                <rect key="frame" x="0.0" y="143" width="393" height="663"/>
+                            </containerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="fJi-tn-yWb" secondAttribute="trailing" constant="24" id="3h0-7f-sAL"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bZg-Gd-hHX" secondAttribute="trailing" id="900-c6-E8h"/>
+                            <constraint firstItem="bZg-Gd-hHX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="MQw-fr-pbA"/>
+                            <constraint firstItem="bZg-Gd-hHX" firstAttribute="top" secondItem="fJi-tn-yWb" secondAttribute="bottom" constant="24" id="coG-0J-DTZ"/>
+                            <constraint firstItem="fJi-tn-yWb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="du9-yp-Sih"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="bZg-Gd-hHX" secondAttribute="bottom" constant="12" id="k2y-kd-fUF"/>
+                            <constraint firstItem="fJi-tn-yWb" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="24" id="pHg-qf-0QO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="bZg-Gd-hHX" id="wBc-J1-zJY"/>
+                        <outlet property="segmentedControl" destination="fJi-tn-yWb" id="Ywj-z9-7vb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-16.030534351145036" y="-27.464788732394368"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
