@@ -13,8 +13,6 @@ public final class MBVersion {
     /// `MBVersion` singleton instance.
     public static let shared = MBVersion()
 
-    var networkLogs: String?
-
     private init() {
         DispatchQueue.main.async {
             UIViewController.swizzleWillAppear()
@@ -57,13 +55,11 @@ public final class MBVersion {
     }
 
     /// Brings already created version label to the front of the current window.
-    public func show(with networkLogs: String? = nil) {
+    public func show() {
         UIApplication.shared.keyWindow?.bringSubviewToFront(versionLabel)
         UIApplication.shared.keyWindow?.frame = CGRect(
             origin: .zero, size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 20)
         )
-        guard let networkLogs else { return }
-        self.networkLogs = networkLogs
     }
 }
 
@@ -81,7 +77,6 @@ extension MBVersion {
             withIdentifier: "VersionDetailsViewController"
         ) as? VersionDetailsViewController else { return }
         controller.snapShot = takeScreenshot()
-        controller.networkLogs = networkLogs
         UIApplication.shared.keyWindow?.rootViewController?.present(controller, animated: true)
     }
 }

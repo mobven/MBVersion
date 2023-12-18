@@ -22,7 +22,6 @@ public class VersionDetailsViewController: UIViewController {
     public var networkLogsViewController: NetworkLogsViewController?
 
     public var snapShot: UIImage?
-    public var networkLogs: String?
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,7 +82,7 @@ public class VersionDetailsViewController: UIViewController {
             networkLogsViewController = storyboard.instantiateViewController(
                 withIdentifier: "NetworkLogsViewController"
             ) as? NetworkLogsViewController
-            networkLogsViewController?.networkLogs = networkLogs
+            networkLogsViewController?.networkLogs = "Work In Progress"
 
             showContentController(content: networkLogsViewController)
             return
