@@ -38,6 +38,36 @@ struct VersionConfig {
 }
 ```
 
+#### Customization
+
+You can easly customize the MBVersion with editing `MBVersionConfig` properties.
+
+
+| Property                     | Type           | Description                                                                        |
+| ---------------------------- | -------------- | -----------------------------------------------------------------------------------|
+| `textFont`                   | `UIFont`       | The font used for the version text.                                                |
+| `textColor`                  | `UIColor`      | The color of the version text.                                                     |
+| `bacgroundColor`             | `UIColor`      | The background color of the version label.                                         |
+
+##### Example 
+You can customize properties like this,
+
+```swift
+  MBVersion.shared.config.textColor = .gray
+  MBVersion.shared.config.bacgroundColor = .red
+```
+or you can create your own `Config`
+
+```swift
+    let mbVersionConfig = MBVersionConfig(
+        textFont: .system,
+        textColor: .black,
+        bacgroundColor: .gray
+    )
+    MBVersion.shared.config = mbVersionConfig
+    MBVersion.shared.show()
+```
+
 ## What's Next
 - [ ] Add documentation & screenshots for DEBUG screens
 - [ ] Swizzle or use URL protocols to show network logs in DEBUG screens.
