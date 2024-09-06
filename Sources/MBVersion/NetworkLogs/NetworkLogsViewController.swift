@@ -1,19 +1,18 @@
 //
 //  NetworkLogsViewController.swift
-//  
+//  MBVersion
 //
 //  Created by Furkan MobBook on 16.12.2023.
 //
 
 import UIKit
 
-final public class NetworkLogsViewController: UIViewController {
-
+public final class NetworkLogsViewController: UIViewController {
     @IBOutlet var networkLogsLabel: UILabel!
 
     var networkLogs: String?
 
-    public override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         networkLogsLabel.text = networkLogs
     }

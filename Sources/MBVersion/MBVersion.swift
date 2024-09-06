@@ -13,6 +13,9 @@ public final class MBVersion {
     /// `MBVersion` singleton instance.
     public static let shared = MBVersion()
 
+    /// Configurations of `MBVersion`
+    public var config: MBVersionConfigurable = MBVersionConfig()
+
     private init() {
         DispatchQueue.main.async {
             UIViewController.swizzleWillAppear()
@@ -30,9 +33,9 @@ public final class MBVersion {
             width: UIScreen.main.bounds.width,
             height: 20
         )
-        label.backgroundColor = UIColor(red: .zero, green: 115 / 255, blue: 239 / 255, alpha: 1)
-        label.textColor = UIColor.white
-        label.font = UIFont.boldSystemFont(ofSize: 13)
+        label.backgroundColor = config.bacgroundColor
+        label.textColor = config.textColor
+        label.font = config.textFont
         label.isUserInteractionEnabled = true
         return label
     }()

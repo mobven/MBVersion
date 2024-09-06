@@ -1,6 +1,6 @@
 //
 //  DispatchQueue+Extension.swift
-//
+//  MBVersion
 //
 //  Created by Rashid Ramazanov on 22.01.2021.
 //

@@ -1,21 +1,20 @@
 //
 //  SnapshotViewController.swift
-//  
+//  MBVersion
 //
 //  Created by Furkan MobBook on 16.12.2023.
 //
 
 import UIKit
 
-final public class SnapshotViewController: UIViewController {
-
+public final class SnapshotViewController: UIViewController {
     @IBOutlet var viewControllerNameLabel: UILabel!
     @IBOutlet var viewControllerSnapshotImageView: UIImageView!
 
     var viewControllerName: String?
     var snapshot: UIImage?
 
-    public override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         viewControllerNameLabel.text = viewControllerName
         viewControllerSnapshotImageView.image = snapshot
