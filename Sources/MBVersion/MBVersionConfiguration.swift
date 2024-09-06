@@ -10,7 +10,7 @@ import UIKit
 
 /// The `MBVersionConfigurable` protocol defines a set of properties that can be used to configure the appearance of a
 /// MBVersion.
-public protocol MBVersionConfigurable{
+public protocol MBVersionConfigurable {
     var textFont: UIFont { get set }
     var textColor: UIColor { get set }
     var bacgroundColor: UIColor { get set }

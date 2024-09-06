@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  VersionDetailsViewController.swift
+//
 //
 //  Created by Furkan MobBook on 15.12.2023.
 //
@@ -14,7 +14,6 @@ enum SegmentType: Int, CaseIterable {
 }
 
 public class VersionDetailsViewController: UIViewController {
-
     @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var containerView: UIView!
 
@@ -23,7 +22,7 @@ public class VersionDetailsViewController: UIViewController {
 
     public var snapShot: UIImage?
 
-    public override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         setSegmentedControl()
         displayViewController(forSegment: 0)
@@ -112,4 +111,3 @@ public class VersionDetailsViewController: UIViewController {
         content.didMove(toParent: self)
     }
 }
-
