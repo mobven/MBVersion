@@ -28,7 +28,7 @@ public struct MBVersionConfig: MBVersionConfigurable {
 
     /// Initializes `MBVersion` with specified configurations.
     /// - Parameters:
-    ///   - textFont: TThe font used for the version  text.
+    ///   - textFont: The font used for the version  text.
     ///   - textColor: The color of the version text.
     ///   - bacgroundColor: The background color of the version label
     public init(
