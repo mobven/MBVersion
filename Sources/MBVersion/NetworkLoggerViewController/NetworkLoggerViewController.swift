@@ -46,7 +46,6 @@ extension NetworkLoggerViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard = UIStoryboard(name: "NetworkLoggerDetailViewController", bundle: nil)
         let detailVC = storyBoard.instantiateViewController(withIdentifier: "NetworkLoggerDetailVC") as! NetworkLoggerDetailViewController
-        
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
