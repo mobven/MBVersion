@@ -7,9 +7,9 @@
 
 import Foundation
 
-public final class NetworkLogger: URLProtocol {
+public final class NetworkLoggerManager: URLProtocol {
     
-    public static let shared = NetworkLogger()
+    public static let shared = NetworkLoggerManager()
     
    private override init(
     request: URLRequest,
@@ -18,7 +18,7 @@ public final class NetworkLogger: URLProtocol {
        super.init(request: request, cachedResponse: cachedResponse, client: client)
     }
     
-    public static var result: NetworkLogger.NetworkResult?
+    public static var result: NetworkLoggerManager.NetworkResult?
     
     public override class func canInit(with request: URLRequest) -> Bool {
         return true
@@ -33,7 +33,7 @@ public final class NetworkLogger: URLProtocol {
     }
     
     public override func startLoading() {
-        guard let result = NetworkLogger.result else {
+        guard let result = NetworkLoggerManager.result else {
             client?.urlProtocolDidFinishLoading(self)
             return
         }
@@ -60,7 +60,7 @@ public final class NetworkLogger: URLProtocol {
     }
 }
 
-extension NetworkLogger {
+extension NetworkLoggerManager {
     public enum NetworkResult {
         /// Successfull result with specified data
         case success(Data)
